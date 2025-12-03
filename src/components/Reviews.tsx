@@ -33,11 +33,22 @@ const authors = [
   'JeffBezos',
 ];
 
-function getReviews(language: 'ko' | 'en'): Array<Review> {
-  const translations = language === 'ko' ? koTranslations : enTranslations;
-  const reviewItems = (translations as any).reviews?.items || [];
+interface ReviewTranslation {
+  reviews?: {
+    items?: Array<{
+      title?: string;
+      body?: string;
+    }>;
+  };
+}
 
-  return reviewItems.map((item: any, index: number) => ({
+function getReviews(language: 'ko' | 'en'): Array<Review> {
+  const translations = (
+    language === 'ko' ? koTranslations : enTranslations
+  ) as ReviewTranslation;
+  const reviewItems = translations.reviews?.items || [];
+
+  return reviewItems.map((item, index: number) => ({
     title: item?.title || '',
     body: item?.body || '',
     author: authors[index] || `User${index + 1}`,

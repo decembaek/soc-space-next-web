@@ -34,8 +34,8 @@ function Chart({
   paddingY?: number;
   gridLines?: number;
 }) {
-  let width = totalWidth - paddingX * 2;
-  let height = totalHeight - paddingY * 2;
+  const width = totalWidth - paddingX * 2;
+  const height = totalHeight - paddingY * 2;
 
   const id = useId();
   const svgRef = useRef<React.ElementRef<'svg'>>(null);
@@ -65,7 +65,7 @@ function Chart({
         ? {
             onPointerLeave: () => onChangeActivePointIndex(null),
             onPointerMove: (event) => {
-              let x = event.nativeEvent.offsetX;
+              const x = event.nativeEvent.offsetX;
               let closestPointIndex: number | null = null;
               let closestDistance = Infinity;
               for (
@@ -73,8 +73,8 @@ function Chart({
                 pointIndex < points.length;
                 pointIndex++
               ) {
-                let point = points[pointIndex];
-                let distance = Math.abs(point.x - x);
+                const point = points[pointIndex];
+                const distance = Math.abs(point.x - x);
                 if (distance < closestDistance) {
                   closestDistance = distance;
                   closestPointIndex = pointIndex;
@@ -162,11 +162,11 @@ function Chart({
 }
 
 export function AppDemo() {
-  let [activePointIndex, setActivePointIndex] = useState<number | null>(null);
-  let activePriceIndex = activePointIndex ?? prices.length - 1;
-  let activeValue = prices[activePriceIndex];
-  let previousValue = prices[activePriceIndex - 1];
-  let percentageChange =
+  const [activePointIndex, setActivePointIndex] = useState<number | null>(null);
+  const activePriceIndex = activePointIndex ?? prices.length - 1;
+  const activeValue = prices[activePriceIndex];
+  const previousValue = prices[activePriceIndex - 1];
+  const percentageChange =
     activePriceIndex === 0
       ? null
       : ((activeValue - previousValue) / previousValue) * 100;

@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { Radio, RadioGroup } from '@headlessui/react'
-import clsx from 'clsx'
+import { useState } from 'react';
+import { Radio, RadioGroup } from '@headlessui/react';
+import clsx from 'clsx';
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { Logomark } from '@/components/Logo'
+import { Button } from '@/components/Button';
+import { Container } from '@/components/Container';
+import { Logomark } from '@/components/Logo';
 
 const plans = [
   {
@@ -66,7 +66,7 @@ const plans = [
     ],
     logomarkClassName: 'fill-cyan-500',
   },
-]
+];
 
 function CheckIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -86,7 +86,7 @@ function CheckIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
 function Plan({
@@ -99,32 +99,32 @@ function Plan({
   logomarkClassName,
   featured = false,
 }: {
-  name: string
+  name: string;
   price: {
-    Monthly: string
-    Annually: string
-  }
-  description: string
+    Monthly: string;
+    Annually: string;
+  };
+  description: string;
   button: {
-    label: string
-    href: string
-  }
-  features: Array<string>
-  activePeriod: 'Monthly' | 'Annually'
-  logomarkClassName?: string
-  featured?: boolean
+    label: string;
+    href: string;
+  };
+  features: Array<string>;
+  activePeriod: 'Monthly' | 'Annually';
+  logomarkClassName?: string;
+  featured?: boolean;
 }) {
   return (
     <section
       className={clsx(
         'flex flex-col overflow-hidden rounded-3xl p-6 shadow-lg shadow-gray-900/5',
-        featured ? 'order-first bg-gray-900 lg:order-0' : 'bg-white',
+        featured ? 'order-first bg-gray-900 lg:order-0' : 'bg-white'
       )}
     >
       <h3
         className={clsx(
           'flex items-center text-sm font-semibold',
-          featured ? 'text-white' : 'text-gray-900',
+          featured ? 'text-white' : 'text-gray-900'
         )}
       >
         <Logomark className={clsx('h-6 w-6 flex-none', logomarkClassName)} />
@@ -133,7 +133,7 @@ function Plan({
       <p
         className={clsx(
           'relative mt-5 flex text-3xl tracking-tight',
-          featured ? 'text-white' : 'text-gray-900',
+          featured ? 'text-white' : 'text-gray-900'
         )}
       >
         {price.Monthly === price.Annually ? (
@@ -145,7 +145,7 @@ function Plan({
               className={clsx(
                 'transition duration-300',
                 activePeriod === 'Annually' &&
-                  'pointer-events-none translate-x-6 opacity-0 select-none',
+                  'pointer-events-none translate-x-6 opacity-0 select-none'
               )}
             >
               {price.Monthly}
@@ -155,7 +155,7 @@ function Plan({
               className={clsx(
                 'absolute top-0 left-0 transition duration-300',
                 activePeriod === 'Monthly' &&
-                  'pointer-events-none -translate-x-6 opacity-0 select-none',
+                  'pointer-events-none -translate-x-6 opacity-0 select-none'
               )}
             >
               {price.Annually}
@@ -166,7 +166,7 @@ function Plan({
       <p
         className={clsx(
           'mt-3 text-sm',
-          featured ? 'text-gray-300' : 'text-gray-700',
+          featured ? 'text-gray-300' : 'text-gray-700'
         )}
       >
         {description}
@@ -178,7 +178,7 @@ function Plan({
             '-my-2 divide-y text-sm',
             featured
               ? 'divide-gray-800 text-gray-300'
-              : 'divide-gray-200 text-gray-700',
+              : 'divide-gray-200 text-gray-700'
           )}
         >
           {features.map((feature) => (
@@ -186,7 +186,7 @@ function Plan({
               <CheckIcon
                 className={clsx(
                   'h-6 w-6 flex-none',
-                  featured ? 'text-white' : 'text-cyan-500',
+                  featured ? 'text-white' : 'text-cyan-500'
                 )}
               />
               <span className="ml-4">{feature}</span>
@@ -203,13 +203,13 @@ function Plan({
         {button.label}
       </Button>
     </section>
-  )
+  );
 }
 
 export function Pricing() {
-  let [activePeriod, setActivePeriod] = useState<'Monthly' | 'Annually'>(
-    'Monthly',
-  )
+  const [activePeriod, setActivePeriod] = useState<'Monthly' | 'Annually'>(
+    'Monthly'
+  );
 
   return (
     <section
@@ -246,7 +246,7 @@ export function Pricing() {
                     'cursor-pointer border border-gray-300 px-[calc(--spacing(3)-1px)] py-[calc(--spacing(2)-1px)] text-sm text-gray-700 transition-colors hover:border-gray-400 data-focus:outline-2 data-focus:outline-offset-2',
                     period === 'Monthly'
                       ? 'rounded-l-lg'
-                      : '-ml-px rounded-r-lg',
+                      : '-ml-px rounded-r-lg'
                   )}
                 >
                   {period}
@@ -259,7 +259,7 @@ export function Pricing() {
                 'pointer-events-none absolute inset-0 z-10 grid grid-cols-2 overflow-hidden rounded-lg bg-cyan-500 transition-all duration-300',
                 activePeriod === 'Monthly'
                   ? '[clip-path:inset(0_50%_0_0)]'
-                  : '[clip-path:inset(0_0_0_calc(50%-1px))]',
+                  : '[clip-path:inset(0_0_0_calc(50%-1px))]'
               )}
             >
               {['Monthly', 'Annually'].map((period) => (
@@ -267,7 +267,7 @@ export function Pricing() {
                   key={period}
                   className={clsx(
                     'py-2 text-center text-sm font-semibold text-white',
-                    period === 'Annually' && '-ml-px',
+                    period === 'Annually' && '-ml-px'
                   )}
                 >
                   {period}
@@ -284,5 +284,5 @@ export function Pricing() {
         </div>
       </Container>
     </section>
-  )
+  );
 }
