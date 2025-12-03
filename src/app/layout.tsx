@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   },
   description:
     'Soc Space is a macOS app for storage space. It allows you to manage your storage space and get insights into your storage space.',
+  other: {
+    'naver-site-verification': '9bc2dedec3903805646810b444743bdd06f11514',
+  },
 };
 
 export default function RootLayout({
