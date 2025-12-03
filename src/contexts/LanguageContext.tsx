@@ -22,13 +22,28 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined
 );
 
-const translations: Record<Language, Record<string, any>> = {
+type TranslationValue =
+  | string
+  | number
+  | boolean
+  | TranslationValue[]
+  | { [key: string]: TranslationValue };
+
+const translations: Record<Language, Record<string, TranslationValue>> = {
   ko: koTranslations,
   en: enTranslations,
 };
 
-function getNestedValue(obj: any, path: string): string {
-  return path.split('.').reduce((current, key) => current?.[key], obj) || path;
+function getNestedValue(obj: TranslationValue, path: string): string {
+  const result = path
+    .split('.')
+    .reduce<TranslationValue | undefined>((current, key) => {
+      if (current && typeof current === 'object' && !Array.isArray(current)) {
+        return current[key];
+      }
+      return undefined;
+    }, obj);
+  return typeof result === 'string' ? result : path;
 }
 
 function replaceParams(

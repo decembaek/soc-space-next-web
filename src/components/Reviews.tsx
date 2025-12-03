@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react'
-import clsx from 'clsx'
-import { useInView } from 'framer-motion'
+import { useEffect, useMemo, useRef, useState } from 'react';
+import clsx from 'clsx';
+import { useInView } from 'framer-motion';
 
-import { Container } from '@/components/Container'
-import { useLanguage } from '@/contexts/LanguageContext'
-import koTranslations from '@/locales/ko.json'
-import enTranslations from '@/locales/en.json'
+import { Container } from '@/components/Container';
+import { useLanguage } from '@/contexts/LanguageContext';
+import koTranslations from '@/locales/ko.json';
+import enTranslations from '@/locales/en.json';
 
 interface Review {
-  title: string
-  body: string
-  author: string
-  rating: 1 | 2 | 3 | 4 | 5
+  title: string;
+  body: string;
+  author: string;
+  rating: 1 | 2 | 3 | 4 | 5;
 }
 
 const authors = [
@@ -36,7 +36,7 @@ const authors = [
 function getReviews(language: 'ko' | 'en'): Array<Review> {
   const translations = language === 'ko' ? koTranslations : enTranslations;
   const reviewItems = (translations as any).reviews?.items || [];
-  
+
   return reviewItems.map((item: any, index: number) => ({
     title: item?.title || '',
     body: item?.body || '',
@@ -50,7 +50,7 @@ function StarIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     <svg viewBox="0 0 20 20" aria-hidden="true" {...props}>
       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
     </svg>
-  )
+  );
 }
 
 function StarRating({ rating }: { rating: Review['rating'] }) {
@@ -61,12 +61,12 @@ function StarRating({ rating }: { rating: Review['rating'] }) {
           key={index}
           className={clsx(
             'h-5 w-5',
-            rating > index ? 'fill-cyan-500' : 'fill-gray-300',
+            rating > index ? 'fill-cyan-500' : 'fill-gray-300'
           )}
         />
       ))}
     </div>
-  )
+  );
 }
 
 function Review({
@@ -77,18 +77,25 @@ function Review({
   className,
   ...props
 }: Omit<React.ComponentPropsWithoutRef<'figure'>, keyof Review> & Review) {
-  let animationDelay = useMemo(() => {
-    let possibleAnimationDelays = ['0s', '0.1s', '0.2s', '0.3s', '0.4s', '0.5s']
+  const animationDelay = useMemo(() => {
+    const possibleAnimationDelays = [
+      '0s',
+      '0.1s',
+      '0.2s',
+      '0.3s',
+      '0.4s',
+      '0.5s',
+    ];
     return possibleAnimationDelays[
       Math.floor(Math.random() * possibleAnimationDelays.length)
-    ]
-  }, [])
+    ];
+  }, []);
 
   return (
     <figure
       className={clsx(
         'animate-fade-in rounded-3xl bg-white p-6 opacity-0 shadow-md shadow-gray-900/5',
-        className,
+        className
       )}
       style={{ animationDelay }}
       {...props}
@@ -104,19 +111,19 @@ function Review({
         {author}
       </figcaption>
     </figure>
-  )
+  );
 }
 
 function splitArray<T>(array: Array<T>, numParts: number) {
-  let result: Array<Array<T>> = []
+  const result: Array<Array<T>> = [];
   for (let i = 0; i < array.length; i++) {
-    let index = i % numParts
+    const index = i % numParts;
     if (!result[index]) {
-      result[index] = []
+      result[index] = [];
     }
-    result[index].push(array[i])
+    result[index].push(array[i]);
   }
-  return result
+  return result;
 }
 
 function ReviewColumn({
@@ -125,30 +132,30 @@ function ReviewColumn({
   reviewClassName,
   msPerPixel = 0,
 }: {
-  reviews: Array<Review>
-  className?: string
-  reviewClassName?: (reviewIndex: number) => string
-  msPerPixel?: number
+  reviews: Array<Review>;
+  className?: string;
+  reviewClassName?: (reviewIndex: number) => string;
+  msPerPixel?: number;
 }) {
-  let columnRef = useRef<React.ElementRef<'div'>>(null)
-  let [columnHeight, setColumnHeight] = useState(0)
-  let duration = `${columnHeight * msPerPixel}ms`
+  const columnRef = useRef<React.ElementRef<'div'>>(null);
+  const [columnHeight, setColumnHeight] = useState(0);
+  const duration = `${columnHeight * msPerPixel}ms`;
 
   useEffect(() => {
     if (!columnRef.current) {
-      return
+      return;
     }
 
-    let resizeObserver = new window.ResizeObserver(() => {
-      setColumnHeight(columnRef.current?.offsetHeight ?? 0)
-    })
+    const resizeObserver = new window.ResizeObserver(() => {
+      setColumnHeight(columnRef.current?.offsetHeight ?? 0);
+    });
 
-    resizeObserver.observe(columnRef.current)
+    resizeObserver.observe(columnRef.current);
 
     return () => {
-      resizeObserver.disconnect()
-    }
-  }, [])
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   return (
     <div
@@ -165,18 +172,18 @@ function ReviewColumn({
         />
       ))}
     </div>
-  )
+  );
 }
 
 function ReviewGrid() {
   const { language } = useLanguage();
   const reviews = getReviews(language);
-  let containerRef = useRef<React.ElementRef<'div'>>(null)
-  let isInView = useInView(containerRef, { once: true, amount: 0.4 })
-  let columns = splitArray(reviews, 3)
-  let column1 = columns[0]
-  let column2 = columns[1]
-  let column3 = splitArray(columns[2], 2)
+  const containerRef = useRef<React.ElementRef<'div'>>(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.4 });
+  const columns = splitArray(reviews, 3);
+  const column1 = columns[0];
+  const column2 = columns[1];
+  const column3 = splitArray(columns[2], 2);
 
   return (
     <div
@@ -191,7 +198,7 @@ function ReviewGrid() {
               clsx(
                 reviewIndex >= column1.length + column3[0].length &&
                   'md:hidden',
-                reviewIndex >= column1.length && 'lg:hidden',
+                reviewIndex >= column1.length && 'lg:hidden'
               )
             }
             msPerPixel={10}
@@ -214,7 +221,7 @@ function ReviewGrid() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-gray-50" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-gray-50" />
     </div>
-  )
+  );
 }
 
 export function Reviews() {
@@ -239,5 +246,5 @@ export function Reviews() {
         <ReviewGrid />
       </Container>
     </section>
-  )
+  );
 }
