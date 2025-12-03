@@ -1,0 +1,229 @@
+{
+  "common": {
+    "download": "Download",
+    "login": "Log in",
+    "register": "Sign up",
+    "features": "Features",
+    "reviews": "Reviews",
+    "faqs": "FAQs",
+    "watchVideo": "Watch video",
+    "asFeaturedIn": "As featured in",
+    "downloadApp": "Download App",
+    "scanQrCode": "Scan the QR code to download the app from the App Store.",
+    "emailAddress": "Email address",
+    "joinNewsletter": "Subscribe to newsletter",
+    "joinNewsletterShort": "Subscribe",
+    "copyright": "AnyBaek © Copyright 2025. All rights reserved.",
+    "home": "Home"
+  },
+  "hero": {
+    "title": "The most intelligent Mac storage manager.",
+    "description": "Soc Space is an intelligent Mac cleaner designed for developers, designers, and Mac users. From node_modules, Docker, and Xcode caches to Final Cut Pro render files. Find hidden project junk files at overwhelming speed with the Soc Space app, and safely reclaim your precious disk space."
+  },
+  "footer": {
+    "tagline": "The most intelligent Mac storage manager",
+    "support": "Support",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "primaryFeatures": {
+    "subtitle": "Everything you need",
+    "title": "Safely reclaim your precious disk space.",
+    "description": "'Disk Full.' Have you ever panicked seeing this notification while working? Beyond simply emptying the trash, this app identifies 'massive hidden files' left behind by professional tools and safely cleans them up.",
+    "features": {
+      "inviteFriends": {
+        "name": "Check Mac status in one click",
+        "description": "Instantly check your MacBook's status with a single click."
+      },
+      "notifications": {
+        "name": "Simple junk file list",
+        "description": "View the list of junk files and clean them up fast."
+      },
+      "investAnyAmount": {
+        "name": "Worry-free cleanup",
+        "description": "Verify exactly what you are deleting and clean up with just one button."
+      }
+    }
+  },
+  "secondaryFeatures": {
+    "title": "Now is the time to optimize your Mac's performance.",
+    "description": "If you want to maximize your MacBook's potential, use this app. Soc Space finds hidden project junk files and safely reclaims your precious disk space.",
+    "features": {
+      "investAnyAmount": {
+        "name": "Delete only what you want",
+        "description": "Soc Space lets you select specific files to delete. Nothing you don't know about gets removed."
+      },
+      "balancedPortfolio": {
+        "name": "Easy and fast junk cleanup",
+        "description": "Check the safety status of files in Soc Space and clean them up simply with one button."
+      },
+      "realTimeTrade": {
+        "name": "Real-time analysis",
+        "description": "Analyze in real-time to select and delete the optimal files every time."
+      },
+      "profitFromNetwork": {
+        "name": "No network connection needed",
+        "description": "Soc Space works perfectly without a network connection."
+      },
+      "encrypted": {
+        "name": "100% Local App",
+        "description": "File information is never exposed externally. All operations happen locally."
+      },
+      "portfolioTracking": {
+        "name": "Automatic file categorization",
+        "description": "Files are automatically categorized by type for easy organization."
+      }
+    }
+  },
+  "callToAction": {
+    "title": "Experience these amazing features now",
+    "description": "It only takes 30 seconds to download. Download now and keep your Mac in optimal condition."
+  },
+  "reviews": {
+    "title": "Everyone is changing their life with Soc Space.",
+    "description": "Thousands of people have safely reclaimed their precious disk space in the last 30 days.",
+    "items": [
+      {
+        "title": "This should be illegal.",
+        "body": "Gone are the days of wasting life typing 'rm -rf node_modules' in the terminal. Finding 50GB with one button feels like using a legal cheat code."
+      },
+      {
+        "title": "Cancelled my new Mac order.",
+        "body": "I was about to buy an M3 MacBook because I ran out of space. I reclaimed 100GB with this app and saved $2,000. Sorry, Tim Cook!"
+      },
+      {
+        "title": "Downloaded a free SSD.",
+        "body": "I thought it was physically impossible, but it feels like I upgraded my 512GB to 1TB. My Mac is faster than when I bought it."
+      },
+      {
+        "title": "Even a 20-year dev lost.",
+        "body": "I thought I was good at system management, but I knelt before the junk list this app found. Why does Xcode hide this stuff?"
+      },
+      {
+        "title": "Don't download this app.",
+        "body": "Unless you want an excuse to buy a new computer! My MacBook is now too fast to justify an upgrade."
+      },
+      {
+        "title": "Sold my external drive.",
+        "body": "I didn't know Docker images and caches took up this much space. I actually miss the 'Disk Full' notification now."
+      },
+      {
+        "title": "The only janitor for developers.",
+        "body": "I was too scared to use other cleaner apps because they might break the system. But this one knows exactly what a developer needs to delete and what to keep."
+      },
+      {
+        "title": "Extends your lifespan.",
+        "body": "Node, Xcode, Docker... I save time manually deleting their trash and sleep instead. I'd give it 6 stars."
+      }
+    ]
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "description": "Have more questions? {link} us.",
+    "reachOut": "Contact",
+    "columns": [
+      [
+        {
+          "question": "What if my precious source code gets deleted?",
+          "answer": "That will never happen. We target reproducible build artifacts (node_modules, Derived Data, etc.), not your source code (.js, .swift). Rest assured."
+        },
+        {
+          "question": "Can't I just use 'rm -rf'?",
+          "answer": "Sure, if you love the terminal. But isn't it more productive to visualize and delete all junk with one click rather than navigating through 20 project folders?"
+        },
+        {
+          "question": "Is it really safe?",
+          "answer": "Yes, we don't touch critical OS system files. We focus only on 'caches' and 'temp files' created by dev tools. Unlike generic cleaners that might break your system."
+        }
+      ],
+      [
+        {
+          "question": "What can be deleted?",
+          "answer": "We find everything from the notorious node_modules to Xcode Derived Data, old Docker images/containers, Gradle caches, CocoaPods, and unused binaries."
+        },
+        {
+          "question": "What if I delete a necessary file by mistake?",
+          "answer": "Don't worry. All files we delete are 'reproducible'. They will reappear whenever you run 'npm install' or build again. It just takes a little time."
+        },
+        {
+          "question": "How fast is the scan?",
+          "answer": "Much faster than Finder. We use optimization algorithms written in native code to push disk reading speeds to the limit."
+        }
+      ],
+      [
+        {
+          "question": "Do you send my project data to a server?",
+          "answer": "Absolutely not. All scanning and deletion happen 100% locally on your Mac. We can't see your code, and we don't want to."
+        },
+        {
+          "question": "Do you support M1, M2, M3 chips?",
+          "answer": "Of course. Built natively to fully support Apple Silicon. It delivers maximum performance from Intel Macs to the latest M3 MacBooks."
+        },
+        {
+          "question": "How much space can I free up?",
+          "answer": "It depends on usage, but developers typically reclaim 10GB to over 50GB on the first run. You'll be surprised, especially if you use Docker and Xcode heavily."
+        }
+      ]
+    ]
+  },
+  "privacyPolicy": {
+    "title": "Soc Space Privacy Policy",
+    "lastUpdated": "Last Updated: December 3, 2025",
+    "sections": {
+      "collection": {
+        "title": "1. Collection and Use of Personal Information",
+        "content": "Soc Space (hereinafter referred to as \"the App\") values your personal information. This app does not transmit, collect, or store users' personal information to any server. All data processing is performed locally within the user's Mac device."
+      },
+      "fileAccess": {
+        "title": "2. File Access and Data Processing",
+        "content": "The app accesses the user's device storage to perform its functions.",
+        "purpose": {
+          "title": "Purpose of Access:",
+          "content": "To search for and delete unnecessary files (node_modules, Docker caches, Xcode derived data, etc.) to free up disk space."
+        },
+        "method": {
+          "title": "Processing Method:",
+          "content": "The file search and deletion process is executed entirely within the user's device only. No information such as file names, paths, or contents is transmitted to developers or external third parties."
+        }
+      },
+      "permissions": {
+        "title": "3. App Permissions",
+        "content": "The app may request \"Full Disk Access\" or specific folder access permissions from macOS for smooth functionality. This is a technical requirement to detect caches and configuration files located deep within the system, and we do not steal or collect personal information through this."
+      },
+      "thirdParty": {
+        "title": "4. External Data Sharing (Third-Party Provision)",
+        "content": "Since we do not collect user data, we do not share or sell any data to third parties (advertisers, analytics companies, marketing companies, etc.)."
+      },
+      "children": {
+        "title": "5. Protection of Children's Personal Information",
+        "content": "This app does not collect personal information from children."
+      },
+      "contact": {
+        "title": "6. Contact Us",
+        "content": "If you have any questions about this Privacy Policy, please contact us at the following:",
+        "email": "Email: support@socspace.com"
+      }
+    }
+  },
+  "support": {
+    "title": "Soc Space Customer Support",
+    "subtitle": "How can we help you?",
+    "description": "If you encounter any issues while using the app or have feature suggestions, please let us know anytime. The developer will personally review and respond.",
+    "contact": {
+      "title": "📬 Contact Us",
+      "email": "Email: tmdrbpp123@anybaek.com",
+      "responseTime": "Response Time: We typically respond within 24 hours."
+    },
+    "setupGuide": {
+      "title": "⚙️ Essential Setup Guide: Full Disk Access Permission",
+      "description": "Soc Space requires macOS permission to find hidden junk files. If files are not being detected, please check the following settings.",
+      "steps": [
+        "Go to System Settings > Privacy & Security > **Full Disk Access**.",
+        "Find Soc Space in the list and turn the switch ON.",
+        "Restart the app."
+      ]
+    },
+    "faq": {
+      "title": "❓ Frequently Asked Questions (FAQ)"
+    }
+  }
+}
