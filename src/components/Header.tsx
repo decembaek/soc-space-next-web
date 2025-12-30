@@ -14,6 +14,7 @@ import { Container } from '@/components/Container';
 import { Logo } from '@/components/Logo';
 import { NavLinks } from '@/components/NavLinks';
 import { useLanguage, type Language } from '@/contexts/LanguageContext';
+import { APP_STORE_URL } from '@/constants/links';
 
 function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -238,7 +239,7 @@ export function Header() {
                             </MobileNavLink>
                           </div>
                           <div className="mt-8 flex flex-col gap-4">
-                            <Button href="#">{t('common.download')}</Button>
+                            <Button href={APP_STORE_URL}>{t('common.download')}</Button>
                           </div>
                         </PopoverPanel>
                       </>
@@ -251,7 +252,7 @@ export function Header() {
               {/* <Button href="/login" variant="outline">
                 {t('common.login')}
               </Button> */}
-              <Button href="#">{t('common.download')}</Button>
+              <Button href={APP_STORE_URL}>{t('common.download')}</Button>
             </div>
           </div>
         </Container>

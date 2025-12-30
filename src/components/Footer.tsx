@@ -9,7 +9,7 @@ import { TextField } from '@/components/Fields';
 import { Logomark } from '@/components/Logo';
 import { NavLinks } from '@/components/NavLinks';
 import { useLanguage } from '@/contexts/LanguageContext';
-import qrCode from '@/images/qr-code.svg';
+import { APP_STORE_URL } from '@/constants/links';
 
 function QrCodeBorder(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -45,11 +45,21 @@ export function Footer() {
           <div className="group relative -mx-4 flex items-center self-stretch p-4 transition-colors hover:bg-gray-100 sm:self-auto sm:rounded-2xl lg:mx-0 lg:self-auto lg:p-6">
             <div className="relative flex h-24 w-24 flex-none items-center justify-center">
               <QrCodeBorder className="absolute inset-0 h-full w-full stroke-gray-300 transition-colors group-hover:stroke-cyan-500" />
-              <Image src={qrCode} alt="" unoptimized />
+              <Image
+                src="/qrcode.png"
+                alt=""
+                width={96}
+                height={96}
+                unoptimized
+              />
             </div>
             <div className="ml-8 lg:w-64">
               <p className="text-base font-semibold text-gray-900">
-                <Link href="#">
+                <Link
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span className="absolute inset-0 sm:rounded-2xl" />
                   {t('common.downloadApp')}
                 </Link>
@@ -62,22 +72,22 @@ export function Footer() {
         </div>
         <div className="flex flex-col items-center border-t border-gray-200 pt-8 pb-12 md:flex-row-reverse md:justify-between md:pt-6">
           <form className="flex w-full justify-center md:w-auto">
-            <TextField
+            {/* <TextField
               type="email"
               aria-label={t('common.emailAddress')}
               placeholder={t('common.emailAddress')}
               autoComplete="email"
               required
               className="w-60 min-w-0 shrink"
-            />
-            <Button type="submit" color="cyan" className="ml-4 flex-none">
+            /> */}
+            {/* <Button type="submit" color="cyan" className="ml-4 flex-none">
               <span className="hidden lg:inline">
                 {t('common.joinNewsletter')}
               </span>
               <span className="lg:hidden">
                 {t('common.joinNewsletterShort')}
               </span>
-            </Button>
+            </Button> */}
           </form>
           <div className="mt-6 flex flex-col items-center gap-4 md:mt-0 md:flex-row md:gap-6">
             <div className="flex gap-6">
